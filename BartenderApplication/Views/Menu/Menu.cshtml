@@ -1,0 +1,28 @@
+﻿@using BartenderApplication.Infrastructure;
+@using BartenderApplication.Models;
+@model IEnumerable<MenuItem>
+@foreach (var p in Model)
+{
+    <table>
+
+        <tr>
+
+            <th style="width:40%">
+                <p>@p.Name</p>
+            </th>
+
+            <td style="width:30%">
+                <p>@p.Price.ToString("c")</p>
+            </td>
+
+            <td style="width:30%">
+                <form id="@p.MenuItemId" asp-action="OrderDrink" asp-controller="Order" method="post">
+                    <input type="submit" value="Order Drink" class="btn btn-info btn-sm"/>
+                </form>
+
+            </td>
+
+        </tr>
+
+    </table>
+}
