@@ -1,0 +1,36 @@
+﻿@using BartenderApplication.Infrastructure;
+@using BartenderApplication.Models;
+@model IEnumerable<Order>
+
+    <table style="width:80%">
+        <tr>
+            <th style="width:50%">
+                <p>Drink Name</p>
+            </th>
+            <th style="width:50%">
+                <p>Ready?</p>
+            </th>
+        </tr>
+    </table>
+
+@foreach (var p in Model)
+{
+    <table style="width:80%">
+        <tr>
+
+            <th style="width:50%">
+                <p>@p.OrderName</p>
+            </th>
+
+            <td style="width:50%">
+                <form asp-action="MarkReady" asp-controller="Order" method="post">
+                    <input type="hidden" name="orderId" value="@p.OrderId" />
+                    <input type="submit" value="Ready For Server" class="btn btn-info btn-sm"/>
+                </form>
+
+            </td>
+
+        </tr>
+
+    </table>
+}

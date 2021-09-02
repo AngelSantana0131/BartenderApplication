@@ -66,6 +66,10 @@ namespace BartenderApplication
                 routes.MapRoute(
                     name: "Menu",
                     template: "{controller=Menu}/{action=Menu}/{id?}");
+
+                routes.MapRoute(
+                    name: "Queue",
+                    template: "{controller=Queue}/{action=Queue}/{id?}");
             });
         }
     }

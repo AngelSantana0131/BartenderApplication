@@ -17,6 +17,7 @@ namespace BartenderApplication.Controllers
         }
 
         public ViewResult Menu() => View(repository.MenuItems);
+
     }
 
 }

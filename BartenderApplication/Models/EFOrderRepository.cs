@@ -13,15 +13,17 @@ namespace BartenderApplication.Models
         {
             context = ctx;
         }
+
         public IEnumerable<Order> Orders => context.Order;
+
         public void SaveOrder(Order order)
         {
-
             if (order.OrderId == 0)
             {
                 context.Order.Add(order);
             }
             context.SaveChanges();
         }
+
     }
 }
