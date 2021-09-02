@@ -1,33 +1,50 @@
 ﻿@using BartenderApplication.Infrastructure;
 @using BartenderApplication.Models;
 @model IEnumerable<Order>
-
-    <table style="width:80%">
-        <tr>
-            <th style="width:50%">
-                <p>Drink Name</p>
-            </th>
-            <th style="width:50%">
-                <p>Ready?</p>
-            </th>
-        </tr>
-    </table>
+@{
+    ViewData["Title"] = "Queue";
+}
+<table style="width:90%">
+    <tr>
+        <th style="width:30%">
+            <p>Drink Name</p>
+        </th>
+        <th style="width:30%">
+            <p>Ready?</p>
+        </th>
+        <th style="width:30%">
+            <p>Status</p>
+        </th>
+    </tr>
+</table>
 
 @foreach (var p in Model)
 {
-    <table style="width:80%">
+    <table style="width:90%">
         <tr>
 
-            <th style="width:50%">
+            <th style="width:30%">
                 <p>@p.OrderName</p>
             </th>
 
-            <td style="width:50%">
+            <td style="width:30%">
                 <form asp-action="MarkReady" asp-controller="Order" method="post">
                     <input type="hidden" name="orderId" value="@p.OrderId" />
-                    <input type="submit" value="Ready For Server" class="btn btn-info btn-sm"/>
+                    <input type="submit" value="Ready For Server" class="btn btn-info btn-sm" />
                 </form>
 
+            </td>
+
+            <td style="width:30%">
+
+                    @if(p.DrinkMade == true)
+                        {
+                            <p style="color:green">Drink Ready</p>
+                        }
+                    else
+                        {
+                            <p style="color:darkred">Drink Not Ready</p>
+                        }
             </td>
 
         </tr>

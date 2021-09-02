@@ -1,6 +1,9 @@
 ﻿@using BartenderApplication.Infrastructure;
 @using BartenderApplication.Models;
 @model IEnumerable<MenuItem>
+@{
+    ViewData["Title"] = "Menu";
+}
 @foreach (var p in Model)
 {
     <table>
@@ -17,7 +20,7 @@
 
             <td style="width:30%">
                 <form id="@p.MenuItemId" asp-action="OrderDrink" asp-controller="Order" method="post">
-                    <input type="submit" value="Order Drink" class="btn btn-info btn-sm"/>
+                    <input type="submit" value="Order Drink" class="btn btn-info btn-sm" />
                     <input type="hidden" name="drinkOrdered" value="@p.Name">
                 </form>
 
